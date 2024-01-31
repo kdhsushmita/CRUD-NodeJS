@@ -16,6 +16,8 @@ const registerUser = asyncHandler(async (req, res) => {
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     console.log("The hashed password is ", hashedPassword);
+    //create new user
+
     const user = await User.create({
         username,
         email,
@@ -44,6 +46,7 @@ const loginUser = asyncHandler(async (req, res) => {
             user: {
                 username: user.username,
                 email: user.email,
+                //id ko nam ma user id store garya 
                 id: user.id,
             },
         }, process.env.ACCESS_TOKEN_SECRET, {

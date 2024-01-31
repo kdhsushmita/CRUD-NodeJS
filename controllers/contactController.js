@@ -6,7 +6,6 @@ const getContacts = asyncHandler(async (req, res) => {
     res.status(200).json(contacts);
 })
 
-
 const createContact = asyncHandler(async (req, res) => {
     const { name, email, phone } = req.body;
     if (!name || !email || !phone) {
